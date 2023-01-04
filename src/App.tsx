@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginButton from './components/LoginButton';
+import LoginButton from './auth0/LoginButton';
 
 function App() {
   return (
