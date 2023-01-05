@@ -16,13 +16,14 @@ async function loadUser() {
         return <div>Loading ...</div>;
      }
     
-    // const profile  =  await db.collection("Profiles").findOne({userID: user.id})
-    // if (profile == null) {
-    //     db.collection("Profiles").insertOne({
-    //         _id:user.id,
-    //         name: user.name
-    //     })
-    //     }
+    const profile  =  await db.collection("Profiles").findOne({userID: user.id})
+    if (profile == null) {
+        db.collection("Profiles").insertOne({
+            _id:user.id,
+            name: user.name,
+            teams:[]
+        })
+        }
 
 } catch (e) {
     console.error(e);
