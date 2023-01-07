@@ -9,5 +9,9 @@ export class meal{
         this.name = name
         this.recipe = link
     }
+
+    enumIngredients(){
+        this.ingredients
+    }
 }
 
