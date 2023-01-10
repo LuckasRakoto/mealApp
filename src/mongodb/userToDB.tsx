@@ -5,7 +5,7 @@ import { dbConnectionStr } from "../config";
 
 async function loadUser() {
   const client = new MongoClient(dbConnectionStr)
-  const { user, isLoading } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
   try {
     await client.connect();
     const db = client.db("Foodapp")
@@ -31,23 +31,4 @@ async function loadUser() {
     await client.close();
 }
 }
-
-
-
-
-// const Profile = () => {
-//   const { user, isAuthenticated, isLoading } = useAuth0();
-
-//   return (
-//     isAuthenticated && (
-//       <div>
-//         <img src={user.picture} alt={user.name} />
-//         <h2>{user.name}</h2>
-//         <p>{user.email}</p>
-//       </div>
-//     )
-//   );
-// };
-
-
 
