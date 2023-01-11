@@ -2,6 +2,8 @@ import React from 'react';
 import LoginButton from './auth0/LoginButton';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AuthenticationPage from './pages/authenticationPage';
+import TeamsPage from './pages/teamsDisplayPage';
+import MealsPage from './pages/mealDisplayPage';
 
 function App() {
   return (
@@ -9,7 +11,9 @@ function App() {
       <header className="App-header">Foodre</header>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<AuthenticationPage/>} />
+          <Route path="/" element={<AuthenticationPage/>} />
+          <Route path="teams" element={<TeamsPage />} />
+          <Route path="meals" element={<MealsPage />} />
         </Routes>
       </BrowserRouter>
     </div>
