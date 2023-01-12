@@ -1,5 +1,4 @@
 import React from 'react';
-import LoginButton from './auth0/LoginButton';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AuthenticationPage from './pages/authenticationPage';
 import TeamsPage from './pages/teamsDisplayPage';

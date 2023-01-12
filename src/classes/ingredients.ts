@@ -1,9 +1,9 @@
-export class ingredient {
-    name: string
-    calories : number
+// export class ingredient {
+//     name: string
+//     calories : number
     
-    constructor(name:string,calories:number){
-        this.name = name
-        this.calories = calories
-    }
-}
+//     constructor(name:string,calories:number){
+//         this.name = name
+//         this.calories = calories
+//     }
+// }
