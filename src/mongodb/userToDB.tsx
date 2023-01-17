@@ -7,7 +7,7 @@ async function loadUser() {
   const client = new MongoClient(dbConnectionStr)
   const { user, isAuthenticated, isLoading } = useAuth0();
   try {
-    await client.connect();
+    await client.connect()
     const db = client.db("Foodapp")
     if (!user) {
         return null

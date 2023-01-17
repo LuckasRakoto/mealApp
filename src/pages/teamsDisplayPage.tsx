@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import Slider from "react-slick" 
 
 interface IUser {
     name:string;
@@ -30,21 +29,13 @@ const teams: IUser[]=[
 
 
 const TeamsPage = () => {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      };
-
     return (
     <div>
         <p>This is the teams page</p>
         <div>
             {teams.map(member => {
                 return (<div key={member.id} >
-                        <h3>{member.name}</h3><Card style={{ width: '18rem' }}>
+                        <Card style={{ width: '18rem' }}>
                             <Card.Body>
                                 <Card.Title>{member.name}</Card.Title>
                                 <Card.Text>blablalbla</Card.Text>
