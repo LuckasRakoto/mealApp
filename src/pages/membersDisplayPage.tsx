@@ -28,10 +28,10 @@ const teams: IUser[]=[
 
 
 
-const TeamsPage = () => {
+const MembersPage = () => {
     return (
     <div>
-        <p>This is the teams page</p>
+        <p>This is the members page</p>
         <div>
             {teams.map(member => {
                 return (<div key={member.id} >
@@ -50,4 +50,4 @@ const TeamsPage = () => {
 
 
 
-export default TeamsPage
+export default MembersPage
