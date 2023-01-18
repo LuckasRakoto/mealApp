@@ -1,10 +1,15 @@
 import React from "react"
-import Card from "react-bootstrap/Card"
+import Card from "@mui/material/Card"
+//import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import { Typography } from "@mui/material";
+//import connectToDB from "../mongodb/getMeals";
 
 interface IMeal {
     name: string;
     id: number;
 }
+
 
 const mealsEx: IMeal[] =[
     {
@@ -26,11 +31,10 @@ const MealsPage = () => {
             <div>
                 {mealsEx.map(meal =>{
                     return (<div key={meal.id}>
-                        <Card style={{width:'18rem'}}>
-                            <Card.Body>
-                                <Card.Title>{meal.name}</Card.Title>
-                                <Card.Text>blabla</Card.Text>
-                            </Card.Body>
+                        <Card variant="outlined" sx={{ minWidth: 275 }}>
+                            <CardContent>
+                                <Typography variant="h5" component="div" >{meal.name}</Typography>
+                                </CardContent>
                         </Card>
                     </div>)
                 })}
