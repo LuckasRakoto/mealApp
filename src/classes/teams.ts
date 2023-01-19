@@ -1,6 +1,6 @@
-import { meal } from "./meals"
+import { IMeal } from "./meals"
 
 export class team {
     members: string[] = []
-    meals: meal[] = []    
+    meals: IMeal[] = []    
 }

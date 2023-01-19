@@ -2,7 +2,8 @@ import React, { useState } from "react"
 import Card from "@mui/material/Card"
 //import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 //import connectToDB from "../mongodb/getMeals";
 import getMeal from "../mongodb/getMeal";
 import { IMeal } from "../classes/meals";
@@ -30,15 +31,23 @@ const mealsEx: IMeal[] =[
 ]
 
 const MealsPage = () => {
+    let navigate = useNavigate()
     const [data, gotData] = useState([])
 
-    mealsEx.forEach((meal:IMeal) => {
-        getMeal(meal).then(gotData(data.push(meal)))
-    })
+    // mealsEx.forEach((meal:IMeal) => {
+    //     getMeal(meal).then(gotData(data.push(meal)))
+    // })
+
+    const routeChange = () =>{ 
+        let path = "create"; 
+        navigate(path);
+      }
+      
     
     return (
         <div>
             <p>This is the meals page</p>
+            <Button onClick={routeChange}>Add meal</Button>
             <div>
              {mealsEx.map(meal =>{
                 return (<div key={meal.id}>
