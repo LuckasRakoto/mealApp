@@ -17,9 +17,9 @@ async function getMeal(meal: IMeal) {
         return <div>Loading ...</div>;
      }
 
-    const Meals: object[] = db.collection("Meals").findMany(meal.name)
+    const Meal: object = await db.collection("Meals").findOne({name: meal.name})
     
-    return Meals
+    return Meal
 
 } catch (e) {
     console.error(e);

@@ -8,18 +8,13 @@ import { useNavigate } from "react-router-dom";
 import getMeal from "../mongodb/getMeal";
 import { IMeal } from "../classes/meals";
 
-// interface IMeal {
-//     name: string;
-//     id: number;
-// }
-
 
 const mealsEx: IMeal[] =[
     {
         name:"Donuts sucré au sucre",
         id:'0',
         ingredients:'la'
-    },{
+    },{ 
         name:"Oeuf",
         id:'2',
         ingredients:"comment ça"
@@ -32,11 +27,12 @@ const mealsEx: IMeal[] =[
 
 const MealsPage = () => {
     let navigate = useNavigate()
-    const [data, gotData] = useState([])
 
-    // mealsEx.forEach((meal:IMeal) => {
-    //     getMeal(meal).then(gotData(data.push(meal)))
-    // })
+    const [meals, addMeal] = useState<object[]>([])
+   
+    mealsEx.forEach((meal:IMeal) => {
+      getMeal(meal).then((meal_data) => meal_data && addMeal(meals => meals.concat([meal_data]))
+      )})
 
     const routeChange = () =>{ 
         let path = "create"; 
