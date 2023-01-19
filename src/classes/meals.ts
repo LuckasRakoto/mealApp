@@ -1,16 +1,10 @@
 //import { ingredient } from "./ingredients"
 
-export class meal{
+export interface IMeal{
     name: string
     ingredients:string// ingredient[] = []
     recipe?: string
-
-    constructor(name:string,link:string,ing:string){
-        this.name = name
-        this.recipe = link
-        this.ingredients = ing
-    }
-
+    id: string
     // enumIngredients(){
     //     this.ingredients
     // }
