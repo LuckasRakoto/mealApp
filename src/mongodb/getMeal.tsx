@@ -4,7 +4,7 @@ const {MongoClient} = require('mongodb');
 import { dbConnectionStr } from "../config";
 import {IMeal} from "../classes/meals"
 
-async function getMeal(meal: IMeal) {
+async function getMeal(mealName:string) {
   const client = new MongoClient(dbConnectionStr)
   const { user, isAuthenticated, isLoading } = useAuth0();
   try {
@@ -17,7 +17,7 @@ async function getMeal(meal: IMeal) {
         return <div>Loading ...</div>;
      }
 
-    const Meal: object = await db.collection("Meals").findOne({name: meal.name})
+    const Meal: object = await db.collection("Meals").findOne({name: mealName})
     
     return Meal
 

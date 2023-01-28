@@ -28,11 +28,20 @@ const mealsEx: IMeal[] =[
 const MealsPage = () => {
     let navigate = useNavigate()
 
-    const [meals, addMeal] = useState<object[]>([])
+    const [meals, addMeal] = useState<IMeal[]>([])
    
     mealsEx.forEach((meal:IMeal) => {
-      getMeal(meal).then((meal_data) => meal_data && addMeal(meals => meals.concat([meal_data]))
-      )})
+        {getMeal(meal.name).then( (meal_data) => meal_data && addMeal(meals => meals.concat([meal_data])))}})
+    //   getMeal(meal.name).then((meal_data:{name:string; id: string, ingredients: string}) => 
+    //     // if (meal_data) {
+    //     //     let meal: IMeal = {
+    //     //         name: meal_data.name,
+    //     //         id: meal_data.id,
+    //     //         ingredients: meal_data.ingredients
+    //     //     }
+    //     // }
+     // )})
+
 
     const routeChange = () =>{ 
         let path = "create"; 
@@ -45,7 +54,7 @@ const MealsPage = () => {
             <p>This is the meals page</p>
             <Button onClick={routeChange}>Add meal</Button>
             <div>
-             {mealsEx.map(meal =>{
+             {meals.map(meal => {
                 return (<div key={meal.id}>
                     <Card variant="outlined" sx={{ minWidth: 275 }}>
                         <CardContent>
