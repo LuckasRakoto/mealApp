@@ -17,7 +17,7 @@ async function getMeal(mealName:string) {
         return <div>Loading ...</div>;
      }
 
-    const Meal: object = await db.collection("Meals").findOne({name: mealName})
+    const Meal: {name:string,ingredients:string,recipe:string,id:string} = await db.collection("Meals").findOne({name: mealName})
     
     return Meal
 

@@ -28,19 +28,29 @@ const mealsEx: IMeal[] =[
 const MealsPage = () => {
     let navigate = useNavigate()
 
-    const [meals, addMeal] = useState<IMeal[]>([])
+    const [meals, addMeal] = useState<object[]>([])
    
-    mealsEx.forEach((meal:IMeal) => {
-        {getMeal(meal.name).then( (meal_data) => meal_data && addMeal(meals => meals.concat([meal_data])))}})
-    //   getMeal(meal.name).then((meal_data:{name:string; id: string, ingredients: string}) => 
-    //     // if (meal_data) {
-    //     //     let meal: IMeal = {
-    //     //         name: meal_data.name,
-    //     //         id: meal_data.id,
-    //     //         ingredients: meal_data.ingredients
-    //     //     }
-    //     // }
-     // )})
+    mealsEx.forEach(async (meal:IMeal) => {
+        // {getMeal(meal.name).then( (meal_data) => meal_data && addMeal(meals => meals.concat([meal_data])))}})
+        let objectReceived:null|undefined|object = await getMeal(meal.name)
+        if (!objectReceived) return
+        let mealll:IMeal = {
+            id:objectReceived.id,
+            name:objectReceived.name,
+            recipe:objectReceived.recipe,
+            ingredients:objectReceived.ingredients,
+        }
+        addMeal(meals => meals.concat([mealll]))
+        // then((meal_data:) => {
+        //     if (meal_data) {
+        //         let meal: IMeal = {
+        //             name: meal_data.name,
+        //             id: meal_data.id,
+        //             ingredients: meal_data.ingredients
+        //         }
+        //     }
+        })
+    //  )})
 
 
     const routeChange = () =>{ 
