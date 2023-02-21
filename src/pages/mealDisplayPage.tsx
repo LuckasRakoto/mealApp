@@ -32,7 +32,7 @@ const MealsPage = () => {
    
     mealsEx.forEach(async (meal:IMeal) => {
         // {getMeal(meal.name).then( (meal_data) => meal_data && addMeal(meals => meals.concat([meal_data])))}})
-        let objectReceived:null|undefined|object = await getMeal(meal.name)
+        let objectReceived = await getMeal(meal.name)
         if (!objectReceived) return
         let mealll:IMeal = {
             id:objectReceived.id,
