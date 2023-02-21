@@ -32,3 +32,5 @@ class Team{
         this.members_.push(userId)
     }
 }
+
+export default Team

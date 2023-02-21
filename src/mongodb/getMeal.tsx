@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 const {MongoClient} = require('mongodb');
 import { dbConnectionStr } from "../config";
-import {IMeal} from "../classes/meals"
+//import {IMeal} from "../classes/meals"
 
 async function getMeal(mealName:string) {
   const client = new MongoClient(dbConnectionStr)
